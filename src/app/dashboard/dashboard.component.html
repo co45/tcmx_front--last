@@ -1,0 +1,318 @@
+<div class=" flex px-4 mt-5  ">
+    
+    <!-- Table suivi -->
+    <table class='mx-auto max-w-6xl w-full whitespace-nowrap rounded-lg bg-white divide-y divide-gray-300 shadow-xl '>
+        <thead id="pric">
+            <tr class="text-white bgglob text-left">
+                <th class="font-semibold text-sm uppercase px-6 py-4">
+                    Fournisseur
+                </th>
+                <th class="font-semibold text-sm uppercase px-6 py-4">
+                    Expéditions
+                </th>
+               
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+            <tr *ngFor="let suivi of Suivis" >
+                <td class="px-6 py-4">
+                    <div class="flex items-center space-x-3"> 
+                        <div>
+                            <p class="">
+                                {{suivi.fournisseur}}
+                            </p>
+                            
+                        </div>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <p class="text-gray-500 text-sm font-semibold tracking-wide">
+                        {{suivi.shipment}}
+                    </p>
+                </td>
+                
+                
+                
+            </tr>
+            
+        </tbody>
+    </table>
+
+
+</div>
+
+<div class="inline-grid grid-cols-2">
+
+<div class=" flex px-4 mt-5 overflow-y-auto 1/2 ">
+    
+
+    <!-- Table commande -->
+    <table class='mx-auto w-1/2 whitespace-nowrap rounded-lg bg-white divide-y divide-gray-300 shadow-xl'>
+        <thead id="pric">
+            <tr class="text-white bgglob text-left">
+                <th class="font-semibold text-sm uppercase px-6 py-4">
+                    Numero commande
+                </th>
+                
+                <th></th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+            <tr *ngFor="let c of Cmds" >
+                <td class="px-6 py-4">
+                    <p class="text-gray-500 text-sm font-semibold tracking-wide">
+                        {{c.numero}}
+                    </p>
+
+                </td>
+               
+                <td class="px-6 py-4 text-center">
+                    <button (click)="CommandePdt(c)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                        Produits
+                      </button>
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+
+</div>
+<div class=" flex px-4 mt-5 overflow-y-auto  ">
+    
+
+    <!-- Table facture-->
+    <table class='mx-auto w-1/2 whitespace-nowrap rounded-lg bg-white divide-y divide-gray-300 shadow-xl'>
+        <thead id="pric">
+            <tr class="text-white bgglob text-left">
+                <th class="font-semibold text-sm uppercase px-6 py-4">
+                    Facture
+                </th>
+                <th class="font-semibold text-sm uppercase px-6 py-4">
+                    Date Creation
+                </th>
+               
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+            <tr *ngFor="let ctrl of Ctrls" >
+                <td  class="px-6 py-4 text-center">
+                    {{ctrl.num_fac}}
+                </td>
+                <td class="px-6 py-4">
+                    <p class="text-gray-500 text-sm font-semibold tracking-wide">
+                        {{ctrl.dateCreation}}
+                    </p>
+                </td>
+                
+                
+                
+            </tr>
+            
+        </tbody>
+    </table>
+
+
+</div>
+</div>
+<div class="inline-grid grid-cols-3">
+<div class=" flex px-4 mt-5 overflow-y-auto ">
+    
+
+    <!-- Table fsr -->
+    <table class="mx-auto w-full whitespace-nowrap rounded-lg bg-white divide-y divide-gray-300 shadow-xl">
+        <thead id="pric">
+            <tr class="text-white bgglob text-left ">
+                <th class="font-semibold text-sm uppercase px-6 py-4">
+                    Nom
+                </th>
+                <th class="font-semibold text-sm uppercase px-6 py-4">
+                    Adresse
+                </th>
+                <th class="font-semibold text-sm uppercase px-6 py-4 text-center">
+                    Code
+                </th>
+                <th class="font-semibold text-sm uppercase px-6 py-4 text-center">
+                    Libelle
+                </th>
+                <th class="font-semibold text-sm uppercase px-6 py-4 text-center">
+                    SWIFT
+                </th>
+                
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200 ">
+            <tr *ngFor="let f of fsrs" >
+                <td class="px-6 py-4">
+                    <p class="text-gray-500 text-sm font-semibold tracking-wide">
+                        {{f.nom}}
+                    </p>
+
+                </td>
+                <td class="px-6 py-4">
+                    <p class="text-gray-500 text-sm font-semibold tracking-wide">
+                        {{f.adresse_fsr}}
+                    </p>
+                </td>
+                <td  class="px-6 py-4 text-center">
+                    <p class="text-gray-500 text-sm font-semibold tracking-wide">
+                        {{f.code_fsr}}      
+                    </p>
+                </td>
+                <td  class="px-6 py-4 text-center">
+                    <p class="text-gray-500 text-sm font-semibold tracking-wide">
+                        {{f.libelle_fsr}}      
+                    </p>
+                </td>
+                <td  class="px-6 py-4 text-center">
+                    <p class="text-gray-500 text-sm font-semibold tracking-wide">
+                        {{f.swift}}      
+                    </p>
+                </td>
+                
+            </tr>
+            
+        </tbody>
+    </table>
+    </div>
+
+    <div class=" flex px-4 mt-5  overflow-y-auto overflow-x-auto ">
+    
+
+        <!-- Table produit-->
+        <table class='mx-auto w-1/3 text-xs whitespace-nowrap rounded-lg bg-white divide-y divide-gray-300 shadow-xl'>
+            <thead id="pric">
+                <tr class="text-white bgglob text-left">
+                    <th class="font-semibold text-sm uppercase px-6 py-4">
+                        Reference
+                    </th>
+                    <th class="font-semibold text-sm uppercase px-6 py-4">
+                        Nom Commercial
+                    </th>
+                    <th class="font-semibold text-sm uppercase px-6 py-4">
+                        Famille
+                    </th>
+                    <th class="font-semibold text-sm uppercase px-6 py-4">
+                        Gamme
+                    </th>
+                    <th class="font-semibold text-sm uppercase px-6 py-4">
+                        Therapie
+                    </th>
+                    <th class="font-semibold text-sm uppercase px-6 py-4">
+                        Libelle
+                    </th>
+                   
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+                <tr *ngFor="let p of Pdts" >
+                    <td class="px-6 py-4">
+                        <p class="text-gray-500 text-sm font-semibold tracking-wide">
+                            {{p.reference}}
+                        </p>
+ 
+                    </td>
+                    <td class="px-6 py-4">
+                        <p class="text-gray-500 text-sm font-semibold tracking-wide">
+                            {{p.nom_commercial}}
+                        </p>
+ 
+                    </td>
+                    <td class="px-6 py-4">
+                        <p class="text-gray-500 text-sm font-semibold tracking-wide">
+                            {{p.famille}}
+                        </p>
+ 
+                    </td>
+                    <td class="px-6 py-4">
+                        <p class="text-gray-500 text-sm font-semibold tracking-wide">
+                            {{p.gamme}}
+                        </p>
+ 
+                    </td>
+                    <td class="px-6 py-4">
+                        <p class="text-gray-500 text-sm font-semibold tracking-wide">
+                            {{p.therapie}}
+                        </p>
+ 
+                    </td>
+                    <td class="px-6 py-4">
+                        <p class="text-gray-500 text-sm font-semibold tracking-wide">
+                            {{p.libelle_pdt}}
+                        </p>
+ 
+                    </td>
+                  
+                </tr>
+                
+            </tbody>
+        </table>
+
+    
+</div>
+
+
+<div class=" flex px-4 mt-5 overflow-y-auto ">
+    <!-- Table -->
+    <table class='mx-auto max-w-6xl w-full whitespace-nowrap rounded-lg bg-white divide-y divide-gray-300 shadow-xl'>
+        <thead id="pric">
+            <tr class="text-white bgglob text-left">
+                <th class="font-semibold text-sm uppercase px-6 py-4">
+                    Numero
+                </th>
+                <th class="font-semibold text-sm uppercase px-6 py-4">
+                    Code
+                </th>
+                <th class="font-semibold text-sm uppercase px-6 py-4">
+                    Date
+                </th>
+                <th class="font-semibold text-sm uppercase px-6 py-4">
+                    Montant
+                </th>
+                <th class="font-semibold text-sm uppercase px-6 py-4">
+                    Fournisseur
+                </th>
+
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+            <tr *ngFor="let t of titres" >
+                <td class="px-6 py-4">
+                    <p class="text-gray-500 text-sm font-semibold tracking-wide">
+                        {{t.num_t}}
+                    </p>
+
+                </td>
+                <td class="px-6 py-4">
+                    <p class="text-gray-500 text-sm font-semibold tracking-wide">
+                        {{t.code}}
+                    </p>
+
+                </td>
+                <td class="px-6 py-4">
+                    <p class="text-gray-500 text-sm font-semibold tracking-wide">
+                        {{t.date_t}}
+                    </p>
+
+                </td>
+                <td class="px-6 py-4">
+                    <p class="text-gray-500 text-sm font-semibold tracking-wide">
+                        {{t.montant}}
+                    </p>
+
+                </td>
+                <td class="px-6 py-4">
+                    <p class="text-gray-500 text-sm font-semibold tracking-wide">
+                        {{t.fournisseurTitre.nom}}
+                    </p>
+
+                </td>
+               
+            </tr>
+            
+        </tbody>
+    </table>
+
+
+</div>
+</div>

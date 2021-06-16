@@ -1,0 +1,67 @@
+
+<div class="bgc h-screen w-screen">
+<div class="py-32">
+<div class="flex max-w-sm mx-auto overflow-hidden bg-gray-50 rounded-lg shadow-lg dark:bg-gray-800 lg:max-w-4xl object-center">
+    
+    <div class="hidden shadow-xl rounded-lg m-7 bg-cover lg:block lg:w-1/2" style="background-image:url('../../../assets/images/logo.jpg')"></div>
+    <div class="w-full  bgh px-6 py-8 md:px-8 lg:w-1/2">
+        <h2 class="text-2xl font-semibold text-center text-blue-600 dark:text-white">Toucomex</h2>
+
+        <p class="text-xl text-center text-gray-600 dark:text-gray-200 ">Bienvenue !</p>
+        <form           *ngIf="!isLoggedIn"
+                        name="form"
+                        (ngSubmit)="f.form.valid && onSubmit()"
+                        #f="ngForm"
+                        novalidate>
+        <div class="mt-6 mb-6">
+            <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200" for="LoggingEmailAddress">Nom de l'utilisateur</label>
+            <input id="LoggingEmailAddress" placeholder="Nom" autofocus="" name="username"
+            [(ngModel)]="form.username" required minlength="3" maxlength="20"
+            #username="ngModel" [class.is-invalid]="username.invalid && username.touched" class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-full dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="text">
+            <div *ngIf="username.errors && (username.invalid || username.touched)">
+                <small class="text-danger text-blue-600" *ngIf="username.errors.required" [class.d-none]=" username.untouched" style="font-size: 11px;"> Veuillez saisir un nom d'utilisateur</small>
+                <small class="text-danger text-blue-600" *ngIf="username.errors.minlength" [class.d-none]=" username.untouched" style="font-size: 11px;"> Le nom doit au moins contenir 3 caractères</small>
+                <small class="text-danger text-blue-600" *ngIf="username.errors.maxlength" [class.d-none]=" username.untouched" style="font-size: 11px;"> Le nom ne doit pas depasser  20 caractères</small>
+            </div>
+    
+        </div>
+        
+
+        <div class="mb-4">
+            <div class="flex justify-between">
+                <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200" for="loggingPassword">Mot de passe</label>
+            </div>
+            
+            <input id="loggingPassword" required
+            name="password"
+            [(ngModel)]="form.password"
+            required
+            minlength="6"
+            #password="ngModel"
+            [class.is-invalid]="password.invalid && password.touched" class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-full dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="password" placeholder="Mot de passe">
+            <div *ngIf="password.errors && (password.invalid || password.touched)">
+                <small class="text-danger text-blue-600" *ngIf="password.errors.required" [class.d-none]=" password.untouched" style="font-size: 11px;"> Veuillez saisir un mot de passe</small>
+                <small class="text-danger text-blue-600" *ngIf="password.errors.minlength" [class.d-none]=" password.untouched" style="font-size: 11px;">Le mot de passe doit au moins contenir 6 caractères</small>
+              </div>
+        </div>
+        
+
+        <div class="mt-8">
+            <button  (click)="onSubmit()" class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-blue-700 rounded-full hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
+                Login
+            </button>
+        </div>
+        <div class="form-group">
+            <div
+              class="alert alert-danger"
+              role="alert"
+              *ngIf="f.submitted && isLoginFailed"
+            >
+              Login failed: {{ errorMessage }}
+            </div>
+          </div>
+</form>
+</div>
+</div>
+</div>
+</div>

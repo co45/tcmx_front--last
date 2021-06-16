@@ -1,0 +1,157 @@
+
+<!---->
+
+<div class="grid bg-white rounded-lg shadow-xl w-11/12 md:w-9/12 lg:w-1/2 mx-auto">
+  <div class="flex justify-center py-4">
+    
+
+      <img class="rounded-full h-20 border-blue-600 border-4 border-opacity-80 " src="../../../assets/images/user.png"/>
+    
+  </div>
+  <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+
+  <div class="flex justify-center">
+    <div class="flex">
+      <h1 class="text-gray-600 font-bold md:text-2xl text-xl"></h1>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 mt-5 mx-7">
+    <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Nom</label>
+    <input class="py-2 px-3 rounded-full border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" type="text" placeholder="Nom Utilisateur"name="name" [(ngModel)]="user.name" required minlength="3" maxlength="20" #name="ngModel" autofocus=""
+    [class.is-invalid]="name.invalid && name.touched" id="grid-name" />
+    <div *ngIf="name.errors && (name.invalid || name.touched)">
+      <small class="text-danger" *ngIf="name.errors.required" [class.d-none]="name.untouched"
+        style="font-size: 11px">
+        Veuillez saisir un nom</small>
+      <small class="text-danger" *ngIf="name.errors.minlength" [class.d-none]="name.untouched"
+        style="font-size: 11px">
+        nom doit au moins contenir 3 characters</small>
+      <small class="text-danger" *ngIf="name.errors.maxlength" [class.d-none]="name.untouched"
+        style="font-size: 11px">
+        nom must be at most 20 characters</small>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
+    <div class="grid grid-cols-1">
+      <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Prénom </label>
+      <input class="py-2 px-3 rounded-full border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" type="text" placeholder="Prénom Utilisateur" name="prenom" [(ngModel)]="user.prenom" required minlength="3" maxlength="20" #prenom="ngModel"
+      placeholder="prenom" autofocus="" [class.is-invalid]="prenom.invalid && prenom.touched"
+      id="grid-last-name" />
+      <div *ngIf="prenom.errors && (prenom.invalid || prenom.touched)">
+        <small class="text-danger" *ngIf="prenom.errors.required" [class.d-none]="prenom.untouched"
+          style="font-size: 11px">
+          Veuillez saisir un prenom</small>
+        <small class="text-danger" *ngIf="prenom.errors.minlength" [class.d-none]="prenom.untouched"
+          style="font-size: 11px">
+          prenom must be at least 3 characters</small>
+        <small class="text-danger" *ngIf="prenom.errors.maxlength" [class.d-none]="prenom.untouched"
+          style="font-size: 11px">
+          prenom must be at most 20 characters</small>
+      </div>
+    </div>
+    <div class="grid grid-cols-1">
+      <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Pseudo</label>
+      <input class="py-2 px-3 rounded-full border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
+      name="username" [(ngModel)]="user.username" required minlength="3" maxlength="20" #username="ngModel"
+        placeholder="username" autofocus="" [class.is-invalid]="username.invalid && username.touched"
+        id="grid-pseudo" type="text" placeholder="Username" />
+        <div *ngIf="username.errors && (username.invalid || username.touched)">
+          <small class="text-danger" *ngIf="username.errors.required" [class.d-none]="username.untouched"
+            style="font-size: 11px">
+            Username is required</small>
+          <small class="text-danger" *ngIf="username.errors.minlength" [class.d-none]="username.untouched"
+            style="font-size: 11px">
+            Username must be at least 3 characters</small>
+          <small class="text-danger" *ngIf="username.errors.maxlength" [class.d-none]="username.untouched"
+            style="font-size: 11px">
+            Username must be at most 20 characters</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-1 gap-5 md:gap-8 mt-5 mx-7">
+      <div class="grid grid-cols-1">
+        <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Mot de passe </label>
+        <input class="py-2 px-3 rounded-full border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"  type="password" name="repassword" [(ngModel)]="user.password" required minlength="6" #password="ngModel"
+        placeholder="password" [class.is-invalid]="password.invalid && password.touched"
+        id="grid-password" />
+        <div *ngIf="password.errors && (password.invalid || password.touched)">
+          <small class="text-danger" *ngIf="password.errors.required" [class.d-none]="password.untouched"
+            style="font-size: 11px">
+            Veuillez saisir un mot de passe</small>
+          <small class="text-danger" *ngIf="password.errors.minlength" [class.d-none]="password.untouched"
+            style="font-size: 11px">
+            Password must be at least 6 characters</small>
+        </div>
+      </div>
+      </div>
+
+  
+    
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
+    <div class="grid grid-cols-1">
+      <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Email </label>
+      <input class="py-2 px-3 rounded-full border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"  
+      name="email" type="email" [(ngModel)]="user.email" placeholder="Email" required email #email="ngModel"
+        [class.is-invalid]="email.invalid && email.touched"
+        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-full py-3 px-4"
+        id="grid-email" type="email" placeholder="exemple@exemple.com" />
+      <div *ngIf="email.errors && (email.invalid || email.touched)">
+        <small class="text-danger" *ngIf="email.errors.required" [class.d-none]="email.untouched"
+          style="font-size: 11px">
+          Email is required</small>
+        <small class="text-danger" *ngIf="email.errors.email" [class.d-none]="email.untouched"
+          style="font-size: 11px">
+          Email must be a valid email address</small>
+      </div>
+    </div>
+    <div class="grid grid-cols-1">
+      <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Telephone</label>
+      <input class="py-2 px-3 rounded-full border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"  type="text" name="phone" [(ngModel)]="user.phone" required minlength="8" #phone="ngModel"
+      placeholder="telephone" [class.is-invalid]="phone.invalid && phone.touched"
+      id="grid-password" />
+      <div *ngIf="phone.errors && (phone.invalid || phone.touched)">
+        <small class="text-danger" *ngIf="phone.errors.required" [class.d-none]="phone.untouched"
+          style="font-size: 11px">
+          Veuillez saisir le telephone </small>
+        <small class="text-danger" *ngIf="phone.errors.minlength" [class.d-none]="phone.untouched"
+          style="font-size: 11px">
+          Au moins 8 chiffres</small>
+        <small class="text-danger" *ngIf="phone.errors.maxlength" [class.d-none]="phone.untouched"
+          style="font-size: 11px">
+          20 chiffres au maximum </small>
+      </div>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 mt-5 mx-7" >
+      <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Role</label>
+      <div class="grid grid-cols-3 mt-2 mr-2" >
+        <div>
+          <label class="inline-flex items-center">
+            <input type="radio" class="form-radio" name="radio" value="achat" [(ngModel)]="user.departement"  checked>
+            <span class="ml-2">Achat</span>
+          </label>
+        </div>
+        <div>
+          <label class="inline-flex items-center">
+            <input type="radio" class="form-radio" name="radio" value="commercial" [(ngModel)]="user.departement">
+            <span class="ml-2">Commercial</span>
+          </label>
+        </div>
+       
+        </div>
+     
+    </div>
+
+    
+
+
+  <div class='flex items-center justify-center  md:gap-8 gap-4 pt-5 pb-5'>
+    <button type="reset" class='w-auto bg-gray-500 hover:bg-gray-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Annuler</button>
+    <button (click)="onSubmit()" class='w-auto bg-blue-500 hover:bg-blue-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Ajouter</button>
+  </div>
+</form>
+</div>

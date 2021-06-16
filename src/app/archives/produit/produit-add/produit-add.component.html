@@ -1,0 +1,139 @@
+<div class="grid bg-white rounded-lg shadow-xl w-11/12 md:w-9/12 lg:w-4/5 mx-auto">
+
+    <form  name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+
+        <div class="flex justify-center">
+            <div class="flex">
+                <h1 class="text-gray-600 font-bold md:text-2xl text-xl"></h1>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 mt-5 mx-7">
+            <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Reference</label>
+            <input
+                class="py-2 px-3 rounded-full border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                type="text" placeholder="Reference" name="reference" [(ngModel)]="form.reference" required minlength="4"
+                #reference="ngModel" autofocus="" [class.is-invalid]="reference.invalid && reference.touched" id="grid-ref" />
+            <div *ngIf="reference.errors && (reference.invalid || reference.touched)">
+                <small class="text-danger" *ngIf="reference.errors.required" [class.d-none]="reference.untouched"
+                    style="font-size: 11px">
+                    Veuillez saisir une reference</small>
+                <small class="text-danger" *ngIf="reference.errors.minlength" [class.d-none]="reference.untouched"
+                    style="font-size: 11px">
+                    reference doit au moins contenir 4 characters</small>
+
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
+            <div class="grid grid-cols-1">
+                <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Libelle </label>
+                <input
+                    class="py-2 px-3 rounded-full border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    type="text" placeholder="Libelle" name="libelle" [(ngModel)]="form.libelle_pdt" required
+                    #libelle="ngModel" autofocus="" [class.is-invalid]="libelle.invalid && libelle.touched"
+                    id="grid-libelle" />
+                <div *ngIf="libelle.errors && (libelle.invalid || libelle.touched)">
+                    <small class="text-danger" *ngIf="libelle.errors.required" [class.d-none]="libelle.untouched"
+                        style="font-size: 11px">
+                        Veuillez saisir un libelle</small>
+
+                </div>
+            </div>
+            <div class="grid grid-cols-1">
+                <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Famille</label>
+                <input
+                    class="py-2 px-3 rounded-full border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    name="famille" [(ngModel)]="form.famille" required #famille="ngModel" placeholder="Famille"
+                    autofocus="" [class.is-invalid]="famille.invalid && famille.touched" id="grid-famille"
+                    type="text" />
+                <div *ngIf="famille.errors && (famille.invalid || famille.touched)">
+                    <small class="text-danger" *ngIf="famille.errors.required" [class.d-none]="famille.untouched"
+                        style="font-size: 11px">
+                        Veuillez saisir une famille</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
+            <div class="grid grid-cols-1">
+                <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Gamme </label>
+                <input
+                    class="py-2 px-3 rounded-full border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    type="text" name="gamme" [(ngModel)]="form.gamme" required #gamme="ngModel" placeholder="Gamme"
+                    [class.is-invalid]="gamme.invalid && gamme.touched" id="grid-gamme" />
+                <div *ngIf="gamme.errors && (gamme.invalid || gamme.touched)">
+                    <small class="text-danger" *ngIf="gamme.errors.required" [class.d-none]="gamme.untouched"
+                        style="font-size: 11px">
+                        Veuillez saisir une gamme</small>
+                </div>
+            </div>
+            <div class="grid grid-cols-1">
+                <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Therapie</label>
+                <input
+                    class="py-2 px-3 rounded-full border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    type="text" name="therapie" [(ngModel)]="form.therapie" required #therapie="ngModel"
+                    placeholder="Therapie" [class.is-invalid]="therapie.invalid && therapie.touched"
+                    id="grid-therapie" />
+                <div *ngIf="therapie.errors && (therapie.invalid || therapie.touched)">
+                    <small class="text-danger" *ngIf="therapie.errors.required" [class.d-none]="therapie.untouched"
+                        style="font-size: 11px">
+                        Veuillez saisir une therapie</small>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
+            <div class="grid grid-cols-1">
+                <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Nom Commercial
+                </label>
+                <input
+                    class="py-2 px-3 rounded-full border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    name="nom" type="text" [(ngModel)]="form.nom" placeholder="Nom Commercial" required
+                    #nom="ngModel" [class.is-invalid]="nom.invalid && nom.touched"
+                    id="grid-nom" />
+                <div *ngIf="nom.errors && (nom.invalid || nom.touched)">
+                    <small class="text-danger" *ngIf="nom.errors.required" [class.d-none]="nom.untouched"
+                        style="font-size: 11px">
+                        Veuillez saisir le nom commercial du produit</small>
+                </div>
+            </div>
+            <div class="grid grid-cols-1">
+                <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Code NGP</label>
+                <input
+                    class="py-2 px-3 rounded-full border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    type="text" name="ngp" [(ngModel)]="form.ngp" required #ngp="ngModel" placeholder="Code NGP"
+                    [class.is-invalid]="ngp.invalid && ngp.touched" id="grid-ngp" />
+                <div *ngIf="ngp.errors && (ngp.invalid || ngp.touched)">
+                    <small class="text-danger" *ngIf="ngp.errors.required" [class.d-none]="ngp.untouched"
+                        style="font-size: 11px">
+                        Veuillez saisir le code NGP du produit </small>
+                </div>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 mt-5 mx-7">
+            <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Designation</label>
+            <input
+                class="py-2 px-3 rounded-full border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                type="text" placeholder="Designation" name="desg" [(ngModel)]="form.desg" required
+                #desg="ngModel" autofocus="" [class.is-invalid]="desg.invalid && desg.touched" id="grid-desg" />
+            <div *ngIf="desg.errors && (desg.invalid || desg.touched)">
+                <small class="text-danger" *ngIf="desg.errors.required" [class.d-none]="desg.untouched"
+                    style="font-size: 11px">
+                    Veuillez saisir une designation</small>
+
+            </div>
+        </div>
+
+
+        <div class='flex items-center justify-end md:gap-4 gap-2 pt-5 pb-3 mr-5'>
+            <button type="reset"
+                class='w-auto bg-gray-500 hover:bg-gray-700 rounded-full shadow-xl font-medium text-white px-4 py-2'>Reset</button>
+            <button (click)="onSubmit()"
+                class='w-auto bg-blue-500 hover:bg-blue-700 rounded-full shadow-xl font-medium text-white px-4 py-2'>Ajouter</button>
+        </div>
+    </form>
+</div>

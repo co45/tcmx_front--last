@@ -1,0 +1,103 @@
+<div class="relative bg-white shadow-md rounded-md px-8 pt-12 pb-8 mx-5 mb-4 my-2 h-auto ">
+    <div class="absolute top-0 left-0 w-full h-14 bgh rounded-md rounded-b-none grid grid-flow-col grid-cols-2" id="bg-t">
+      <div class="ml-6 mt-2 col-span-2">
+        <a class="text-gray-800 text-4xl font-semibold">Suivi Des Importations</a>
+      </div>
+      
+    </div>
+    <div >
+      <form  name="form" (ngSubmit)="f.form.valid " #f="ngForm" novalidate>
+        <div class="grid grid-cols-1 mt-5 mx-7">
+          <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Fournisseur</label>
+          
+              <select name="fsr" [(ngModel)]="form.fsr" required #fsr="ngModel" class="py-2 px-3 rounded-full border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"><option *ngFor="let f of Fsrs">{{f.nom}}</option></select>
+        
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
+          <div class="grid grid-cols-1">
+              <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Shipment </label>
+                <input type="text" name="ship" [(ngModel)]="form.ship" required #ship="ngModel" class="py-2 px-3 rounded-full border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"/>
+             
+          </div>
+          <div class="grid grid-cols-1">
+              <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Commande</label>
+              <select name="numero" [(ngModel)]="form.numero" required #numero="ngModel" class="py-2 px-3 rounded-full border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"><option *ngFor="let c of Cmds" >{{c.numero}}</option></select>
+          </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
+          <div class="grid grid-cols-1">
+              <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Facture </label>
+              <input type="text" name="facture" [(ngModel)]="form.facture" required #facture="ngModel" class="py-2 px-3 rounded-full border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"/>
+
+             
+          </div>
+          <div class="grid grid-cols-1">
+              <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Date Facture</label>
+              <input type="date" name="datefacture" [(ngModel)]="form.datefacture" required #datefacture="ngModel" class="py-2 px-3 rounded-full border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"/>
+          </div>
+      </div>
+      
+      <div class="grid grid-cols-1 mt-5 mx-7">
+          <div class="grid grid-cols-1">
+              <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Montant Facture
+              </label>
+              <input type="text" name="montant" [(ngModel)]="form.montant" required #montant="ngModel" class="py-2 px-3 rounded-full border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"/>
+          </div>
+          
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
+      <div class="grid grid-cols-1">
+        <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Titre d'importation</label>
+        <select name="titre" [(ngModel)]="form.titre" required #titre="ngModel" class="py-2 px-3 rounded-full border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-xs"><option *ngFor="let t of titres">{{t.num_t}}</option></select>
+    </div>
+      <div class="grid grid-cols-1 mt-5 mx-7">
+          <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Date Titre d'importation</label>
+          <input type="date" name="datetitre" [(ngModel)]="form.datetitre" required #datetitre="ngModel" class="py-2 px-3 rounded-full border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"/>
+      </div></div>
+
+      <div class="grid grid-cols-1 mt-5 mx-7">
+        <div class="grid grid-cols-1">
+            <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Arrivée
+            </label>
+            <input type="date" name="arrive" [(ngModel)]="form.arrive" required #arrive="ngModel" class="py-2 px-3 rounded-full border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"/>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
+      <div class="grid grid-cols-1">
+        <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Numéro declaration</label>
+        <input type="text" name="dec" [(ngModel)]="form.dec" required #dec="ngModel" class="py-2 px-3 rounded-full border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"/>
+      </div>
+      <div class="grid grid-cols-1 mt-5 mx-7">
+          <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Date declaration</label>
+          <input type="date" name="datedec" [(ngModel)]="form.datedec" required #datedec="ngModel" class="py-2 px-3 rounded-full border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"/>
+      </div></div>
+
+      <div class="grid grid-cols-1 mt-5 mx-7">
+        <div class="grid grid-cols-1">
+            <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Arrivée en stock
+            </label>
+            <input type="date" name="arrives" [(ngModel)]="form.arrives" required #arrives="ngModel" class="py-2 px-3 rounded-full border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"/>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
+      <div class="grid grid-cols-1">
+        <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Numéro Reception</label>
+        <input type="text" name="rec" [(ngModel)]="form.rec" required #rec="ngModel" class="py-2 px-3 rounded-full border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"/>
+      </div>
+      <div class="grid grid-cols-1 mt-5 mx-7">
+          <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Date Reception</label>
+          <input type="date" name="daterec" [(ngModel)]="form.daterec" required #daterec="ngModel" class="py-2 px-3 rounded-full border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"/>
+      </div></div>
+
+      <div class='flex justify-end mr-5  md:gap-8 gap-4 pt-8 pb-5'>
+        <button type="reset" class='w-auto bg-gray-500 hover:bg-gray-700 rounded-full shadow-xl font-medium text-white px-4 py-2'>Réinitialiser</button>
+        <button (click)="onSubmit()" class='w-auto bg-blue-500 hover:bg-blue-700 rounded-full shadow-xl font-medium text-white px-4 py-2'>Ajouter</button>
+      </div>
+ 
+  </form>
+  </div>
+    </div>

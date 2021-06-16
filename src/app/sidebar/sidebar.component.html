@@ -1,0 +1,118 @@
+
+<body class="bg-gray-100 font-family-karla flex">
+  <div>
+  <aside class="relative bg-sidebar h-screen sm:block shadow-sm" id="mySidenav">
+      <div *ngIf="showAdminBoard" class="p-6">
+          <a  [routerLink]="['/dashboard']" routerLinkActive="router-link-active"  class="text-white text-3xl font-semibold uppercase hover:text-gray-300 text-center ">Toucomex</a>
+      </div>
+      <div *ngIf="showUserBoard" class="p-6">
+        <a  [routerLink]="['/dashboard']" routerLinkActive="router-link-active"  class="text-white text-3xl font-semibold uppercase hover:text-gray-300 text-center ">Toucomex</a>
+    </div>
+      <nav routerLinkActive="active" class="text-white text-base font-semibold pt-16 divide-y-2 divide-gray-50 divide-opacity-20 ">
+        <div>
+          <button class="w-full ">
+        <a routerLink="/dashboard" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item ">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+            <i class="fas fa-tachometer-alt mr-3"></i>Dashboard
+        </a> 
+      </button>
+      </div>
+      <div *ngIf="showAdminBoard">
+        <button class="w-full ">
+        <a  routerLink="/user-list"  class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+            <svg class="w-6 h-6 " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+            <i class="fas fa-table mr-3"></i>Users
+        </a>
+      </button>
+      </div>
+       
+       <div>
+         <button class="w-full ">
+        <a routerLink="/list-ctrl" class="flex items-center text-white opacity-75 hover:opacity-5 py-2 pl-4 nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg><i class="fas fa-align-left mr-3"></i>
+            controle technique
+        </a></button></div> 
+        <div>
+          <a routerLink="/list-suivi" class="flex items-center text-white opacity-75 hover:opacity-5 py-2 pl-4 nav-item">
+            <svg class="h-6 w-6 text-white"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="7" cy="17" r="2" />  <circle cx="17" cy="17" r="2" />  <path d="M5 17h-2v-11a1 1 0 0 1 1 -1h9v12m-4 0h6m4 0h2v-6h-8m0 -5h5l3 5" /></svg><i class="fas fa-align-left mr-3"></i>
+              Suivi d'importations
+          </a>
+        </div> 
+       
+          <div *ngIf="showAdminBoard">
+          <div>
+            <a class="flex items-center text-white opacity-75 nav-item py-2 pl-4 nav-item">
+            <svg class="h-6 w-6 text-white"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"/>
+            </svg>
+          Archives 
+        </a>
+      </div>
+        <a routerLink="/fournisseur" *ngIf="showAdminBoard" class="flex items-center text-white opacity-75 hover:opacity-5  pl-8 nav-item">
+          
+            •  Fournisseurs
+      </a>
+      <a routerLink="/commande" class="flex items-center text-white opacity-75 hover:opacity-5  pl-8 nav-item">
+        
+          •  Commandes
+      </a>
+      <a routerLink="/produit" class="flex items-center text-white opacity-75 hover:opacity-5  pl-8 nav-item">
+        
+        •  Produits
+    </a>
+    <a routerLink="/list-titre" class="flex items-center text-white opacity-75 hover:opacity-5  pl-8 nav-item">
+        
+      •  Titres d'importations
+  </a>
+    
+    </div>
+   
+        
+      </nav>
+      <a (click)="logout()" class="absolute w-full upgrade-btn bottom-0 active-nav-link text-white flex items-center justify-center py-4 ">
+          <i class="fas fa-arrow-circle-up mr-3"></i><svg class="w-6 h-6 " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+          Logout
+      </a> 
+      
+  </aside>
+</div>
+  <div class="relative w-full flex flex-col h-screen overflow-y-hidden" id="main">
+      <!-- Desktop Header -->
+      <header >
+        <div class="w-full items-center bghead py-2 px-6 hidden sm:flex">
+          <div class="w-1/2">           
+              <div onclick="sidectrl()" class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                  <input type="checkbox" name="toggle" id="toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-blue border-4 appearance-none cursor-pointer"/>
+                  <label for="toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-blue-300 cursor-pointer"></label>
+              </div>
+              <label for="toggle" class="text-xs text-gray-500">Hide.</label>
+          </div>
+          <div>
+          <a class="text-blue-600"></a>
+          <ul>
+            <li *ngFor="let role of currentUser.roles">
+              {{ role }}
+            </li>
+          </ul>
+        </div>
+          <div class="relative w-1/2 flex justify-end">
+              <button routerLink="/user-profile" class="realtive z-10 w-10 h-10 rounded-full overflow-hidden border-4 border-blue-500 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
+                  <img src="https://source.unsplash.com/uJ8LNVCBjFQ/400x400">
+              </button>        
+          </div>
+        </div>
+      </header>
+      <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
+          <main class="w-full flex-grow p-6 backline">
+            <router-outlet></router-outlet>
+          </main>
+      </div>
+  </div>
+
+  <!-- AlpineJS -->
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  <!-- Font Awesome -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+</body>

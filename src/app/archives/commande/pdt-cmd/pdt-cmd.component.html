@@ -1,0 +1,27 @@
+<div class="relative bg-white shadow-md rounded-md px-8 pt-12 pb-8 mx-5 mb-4 my-2 h-auto">
+    <div class="absolute top-0 left-0 w-full h-14 bgh rounded-md rounded-b-none grid grid-flow-col grid-cols-2" id="bg-t">
+      <div class="ml-6 mt-2 col-span-2">
+        <a class="text-gray-800 text-4xl font-semibold">Produits : </a>
+      </div>
+      
+    </div>
+    <div class="overflow-x-scroll">
+  <table class="flex-grow rounded-lg mt-5 text-gray-100 text-sm bg-gradient-to-l from-blue-500 to-blue-600 w-full">
+    <tr class="text-left border-transparent  bgglob ">
+      <th class="border-r border-blue-400 pl-6 pr-28 py-3">Code Produit</th>
+      <th class="border-r border-blue-400 pl-6 pr-28 py-3">Quantité</th>
+      <th class="border-r border-blue-400 pl-6 pr-28 py-3">Prix Devise</th>
+      <th class="pl-6 pr-10 py-3">Libelle</th>
+     
+    </tr>
+    <tr *ngFor="let p of pdts" class="border-b  border-blue-400">
+      <td class="border-r border-blue-400 pl-6 pr-28 py-3">{{p.pdt}}</td>
+      <td class="border-r border-blue-400 pl-6 pr-28 py-3">{{p.quantite}}</td>
+      <td class="border-r border-blue-400 pl-6 pr-28 py-3">{{p.prix_devise}}</td>
+      <td class="pl-6 pr-10 py-3">{{p.libelle_cmd}}</td>
+
+
+    </tr>    
+  </table>
+  </div>
+    </div>

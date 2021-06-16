@@ -1,0 +1,82 @@
+<div class="flex-auto relative bg-white shadow-md rounded-md px-8 pt-12 pb-8 mx-5 mb-4 my-2 h-auto">
+  <div class="flex-auto absolute top-0 left-0 w-full h-14 bgh rounded-md rounded-b-none grid grid-flow-col grid-cols-2">
+    <div class="ml-6 mt-2 col-span-2">
+      <a class="text-gray-800 text-4xl font-semibold">Controle Technique</a>
+    </div>
+  </div>
+  <!---->
+  <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmitctrl()" #f="ngForm" novalidate>
+  <div class="-mx-3 md:flex mb-6">
+  <div class="mt-10 w-full">
+      <div class="rounded-t-lg w-full h-6 bgglob">
+      </div>
+        <div class="bghb shadow-lg rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
+          
+      <div class="-mx-3 md:flex mb-6">
+        <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
+            Numéro Commande
+          </label>
+          <select (change)="cmdSelected($event)" name="numero" [(ngModel)]="form.numero" required #name="ngModel"  id="cmdn" class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded-full">
+            <option *ngFor="let c of Cmds" >{{c.numero}}</option>
+          </select>
+        </div>
+        <div class="md:w-1/2 px-3">
+          <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-num-cmd">
+            Numéro Facture
+          </label>
+          <input name="num_fac" [(ngModel)]="form.num_fac" required #name="ngModel"  class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-full py-3 px-4" id="grid-num-fac" type="text" >
+        </div>
+      </div>
+      <div class="-mx-3 mb-6">
+      <ng-multiselect-dropdown
+  [placeholder]="'custom placeholder'"
+  [settings]="dropdownSettings"
+  [data]="lpofcmd"
+  [(ngModel)]="selectedItems"
+  (onSelect)="onItemSelect($event)"
+  (onSelectAll)="onSelectAll($event)"
+>
+</ng-multiselect-dropdown></div>
+      <div class="-mx-3 md:flex mb-2">
+        <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-city">
+            Date facture
+          </label>
+          <input name="datefac" [(ngModel)]="form.datefac" required #name="ngModel" type="date" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-full py-3 px-4" id="grid-date">
+        </div>
+        <div class="md:w-1/2 px-3">
+          <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-zip">
+            Date dépot 
+          </label>
+          <input name="Date_dep_incm" [(ngModel)]="form.Date_dep_incm" required #name="ngModel" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-full py-3 px-4" id="grid-date-per" type="date">
+        </div>
+      </div>
+  
+      <div>
+        <div class="flex justify-end space-x-3 mt-5">
+          <button type="button" (click)="onSubmit()"
+            class="focus:outline-none text-white bg-gray-600 text-sm py-1 px-5 rounded-full h-10 w-min hover:bg-gray-500 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            Valider
+          </button>
+          
+          <button type="reset"
+            class="focus:outline-none text-white bg-gray-600 text-xs py-1 px-5 rounded-full h-10 w-min hover:bg-gray-500 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+            Reset
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+</div>
+</form>

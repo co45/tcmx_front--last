@@ -1,0 +1,108 @@
+
+  <div class="overscroll-auto flex flex-wrap overflow-hidden bgh mx-auto max-w-6xl rounded-lg shadow-xl ">
+    <div class="w-full">
+        <div class=" space-x-3 pt-2 relative mx-auto text-gray-600 ml-4 h-11 flex flex-row my-2">
+            <svg class="h-6 w-6 text-gray-800 mt-2"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/>
+              </svg>
+              <div class="grid md:grid-flow-col auto-cols-auto space-x-4">
+                
+                  <div>
+                      <a class="py-2 text-gray-800 font-semibold mr-2">Nom Fournisseur :</a>
+                      <input class="border-2 border-gray-300 px-3 bg-white h-8 rounded-full text-sm focus:outline-none">
+                      
+                  </div>
+                  
+
+                  <div class="grid md:grid-flow-col auto-cols-auto space-x-2">
+                     <a class="py-2 text-gray-800 font-semibold mr-2">Importer (.xlsx) :</a>
+                    <div class="border-2 rounded-full border-opacity-70 h-8 bg-gray-300">
+                    <input class="rounded-full rounded-r-none" type="file" (change)="selectFile($event)"/>
+                    <button class="text-center bg-blue-500 hover:bg-blue-700 text-white font-bold w-20 rounded-full rounded-l-none" (click)="upload()">Upload</button>  
+                </div> 
+                </div>                  
+              
+              <div class="absolute right-3">
+                      <button routerLink="/fsr-add" class=" bg-blue-600 border-transparent hover:bg-blue-800 w-8 h-8 rounded-full text-white">
+                        <svg class="h-6 w-6 text-white mx-auto"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                      </svg>
+                      </button>
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+<div class=" flex px-4 mt-5 overflow-y-auto ">
+    
+
+        <!-- Table -->
+        <table class="mx-auto max-w-6xl w-full whitespace-nowrap rounded-lg bg-white divide-y divide-gray-300 shadow-xl">
+            <thead id="pric">
+                <tr class="text-white bgglob text-left ">
+                    <th class="font-semibold text-sm uppercase px-6 py-4">
+                        Nom
+                    </th>
+                    <th class="font-semibold text-sm uppercase px-6 py-4">
+                        Adresse
+                    </th>
+                    <th class="font-semibold text-sm uppercase px-6 py-4 text-center">
+                        Code
+                    </th>
+                    <th class="font-semibold text-sm uppercase px-6 py-4 text-center">
+                        Libelle
+                    </th>
+                    <th class="font-semibold text-sm uppercase px-6 py-4 text-center">
+                        SWIFT
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200 ">
+                <tr *ngFor="let f of fsrs" >
+                    <td class="px-6 py-4">
+                        <p class="text-gray-500 text-sm font-semibold tracking-wide">
+                            {{f.nom}}
+                        </p>
+ 
+                    </td>
+                    <td class="px-6 py-4">
+                        <p class="text-gray-500 text-sm font-semibold tracking-wide">
+                            {{f.adresse_fsr}}
+                        </p>
+                    </td>
+                    <td  class="px-6 py-4 text-center">
+                        <p class="text-gray-500 text-sm font-semibold tracking-wide">
+                            {{f.code_fsr}}      
+                        </p>
+                    </td>
+                    <td  class="px-6 py-4 text-center">
+                        <p class="text-gray-500 text-sm font-semibold tracking-wide">
+                            {{f.libelle_fsr}}      
+                        </p>
+                    </td>
+                    <td  class="px-6 py-4 text-center">
+                        <p class="text-gray-500 text-sm font-semibold tracking-wide">
+                            {{f.swift}}      
+                        </p>
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        <button   class="text-blue-800 bg-blue-200 hover:bg-blue-400 font-semibold px-2 py-2 rounded-ful"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                          </svg></button>
+                        <button   (click)="alertConfirmation(f.id_fsr)" class="text-red-800 bg-red-200 hover:bg-red-400 font-semibold px-2 rounded-full mx-2 py-2" ><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                          </svg></button>
+                        <button   class="text-gray-800 bg-gray-200 hover:bg-gray-400 font-semibold px-2 py-2 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                          </svg></button>
+                    </td>
+                </tr>
+                
+            </tbody>
+        </table>
+
+    
+</div>
+
