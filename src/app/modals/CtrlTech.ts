@@ -1,4 +1,4 @@
-export class CtrlTech { 
+export class ControleTechniqueModel { 
 
     public facture:String;
     public dateAmc:Date;
@@ -12,6 +12,8 @@ export class CtrlTech {
     public origine:String;
     public provenance:String;
     public quantite:String;
+    public produit:String;
+
 
 
     

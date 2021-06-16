@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CtrlTech } from 'src/app/modals/CtrlTech';
+// import { CtrlTech } from 'src/app/modals/CtrlTech';
 import { ControleTechniqueService } from 'src/app/services/controle-technique.service';
 
 @Component({
@@ -10,8 +10,8 @@ import { ControleTechniqueService } from 'src/app/services/controle-technique.se
 export class ListCtrlComponent implements OnInit {
   showModal = false;
   id: number;
-  Ctrls: CtrlTech[];
-  ctrl: CtrlTech;
+  // Ctrls: CtrlTech[];
+  // ctrl: CtrlTech;
   filterTerm: string;  
   constructor(private cts : ControleTechniqueService) { }
 
@@ -19,10 +19,10 @@ export class ListCtrlComponent implements OnInit {
     this.getcs();
   }
   getcs(){
-    this.cts.getControles().subscribe(data =>{
-      this.Ctrls = data;
-      console.log(data);
-    });
+    // this.cts.getControles().subscribe(data =>{
+    //   this.Ctrls = data;
+    //   console.log(data);
+    // });
   }
 
 }

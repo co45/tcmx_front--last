@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-controle-produit',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ControleProduitComponent implements OnInit {
 
-  constructor() { }
+  lpc:any[]
+  route: any;
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    
+    this.lpc = this.route.snapshot.params['lpofcmd'];
+    console.log(this.lpc);
   }
 
+  
 }

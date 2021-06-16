@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { cmd } from '../modals/cmd';
-import { CtrlTech } from '../modals/CtrlTech';
+// import { CtrlTech } from '../modals/CtrlTech';
 import { fsr } from '../modals/fsr';
 import { pdt } from '../modals/pdt';
 import { suivi } from '../modals/suivi';
@@ -25,8 +25,8 @@ export class DashboardComponent implements OnInit {
   Pdts : pdt[];
   pdt:pdt;
   titres : titre[];
-  Ctrls: CtrlTech[];
-  ctrl: CtrlTech;
+  // Ctrls: CtrlTech[];
+  // ctrl: CtrlTech;
   Suivis: suivi[];
   suivi: suivi;
   s:suivi;
@@ -59,9 +59,9 @@ export class DashboardComponent implements OnInit {
   }
 
   getcs(){
-    this.cts.getControles().subscribe(data =>{
-      this.Ctrls = data;
-    });
+    // this.cts.getControles().subscribe(data =>{
+    //   this.Ctrls = data;
+    // });
   }
 
   getFsrs(){

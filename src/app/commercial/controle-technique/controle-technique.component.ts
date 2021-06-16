@@ -46,6 +46,7 @@ export class ControleTechniqueComponent implements OnInit {
 
     this.getCmds();
 
+   //
 
     this.dropdownSettings = {
       singleSelection: false,
@@ -115,23 +116,25 @@ export class ControleTechniqueComponent implements OnInit {
 
 
   onSubmitctrl() {
-    this.cs.addControle(this.form).subscribe(
-      data => {
-        console.log(data);
-        this.isSuccessful = true;
-        this.isSignUpFailed = false;
-        this.succes();
-        this.goToctrlList();
+    // this.cs.addControle(this.form).subscribe(
+    //   data => {
+    //     console.log(data);
+    //     this.isSuccessful = true;
+    //     this.isSignUpFailed = false;
+    //     this.succes();
+    //     this.goToctrlList();
 
-      },
-      err => {
-        this.errorMessage = err.error.message;
-        this.isSignUpFailed = true;
-      }
-    );
+    //   },
+    //   err => {
+    //     this.errorMessage = err.error.message;
+    //     this.isSignUpFailed = true;
+    //   }
+    // );
   }
-  createCtrl(numcmd: String, numfac: String, datefac: Date, datedepcmd: Date) {
-    this.router.navigate(['ctrl-pdt', numcmd, numfac, datefac, datedepcmd]);
+
+  createCtrl(numcmd: String, numfac: String) {
+    this.router.navigate(['ctrl-produit', numcmd, numfac,this.lpofcmd]);
+
   }
 
 
@@ -157,7 +160,9 @@ getPdtsCmd() {
 
   }
 
-  onSubmit() { console.log("ddaqsq");}
+  onSubmit() { 
+    this.createCtrl;
+    console.log("ddaqsq");}
 
 
 }
