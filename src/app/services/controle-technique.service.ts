@@ -16,6 +16,11 @@ export class ControleTechniqueService {
 
   constructor(private http: HttpClient) { }
 
+  public newControle(ids: any,fac : any): Observable<any> {
+    console.log("ids produits : "+ ids+" facture: " + fac);
+    return this.http.get("http://localhost:8080/produit/createctrl/"+ids+"/{numfac}/"+ fac);
+    
+  }
   public getControle(id: number): Observable<any> {
     console.log("id : "+ id)
     return this.http.get("http://localhost:8080/controle/ctrl/"+ id);
@@ -31,23 +36,21 @@ export class ControleTechniqueService {
   public deleteControle(id: number): Observable<any> {
     return this.http.delete("http://localhost:8080/controle/delete/"+id, { responseType: 'text' });
   }
-  // addControle(controle: CtrlTech): Observable<any> {
-  //   return this.http.post("http://localhost:8080/controle/newsCtrl",{
-  //     // Num_lot : controle.Num_lot,
-  //     // Date_per : controle.Date_per,
-  //     // Date_fac : controle.Date_fac,
-  //     // num_fac : controle.num_fac,
-  //     // Num_incm : controle.Num_incm,
-  //     // Date_dep_incm : controle.Date_dep_incm,
-  //     // Date_amc : controle.Date_amc,
-  //     // Date_recup_ech : controle.Date_recup_ech,
-  //     // Date_ape : controle.Date_ape,
-  //     // Quantite : controle.Quantite,
-  //     // Provenance : controle.Provenance,
-  //     // Origine : controle.Origine,
-  //       }, httpOptions);
-  // }
-  
-
-
+  addControle(controle: ControleTechniqueModel): Observable<any> {
+    return this.http.post("http://localhost:8080/controle/newsCtrl",{
+      numLot : controle.numLot,
+      numApe : controle.numApe,
+      datePeremption : controle.datePeremption,
+      facture : controle.facture,
+      numIncm : controle.numIncm,
+      dateIncm : controle.dateIncm,
+      dateAmc : controle.dateAmc,
+      dateRecEch : controle.dateRecEch,
+      dateApe : controle.dateApe,
+      quantite : controle.quantite,
+      provenance : controle.provenance,
+      origine : controle.origine,
+      produit : controle.produit
+        }, httpOptions);
+  }
 }

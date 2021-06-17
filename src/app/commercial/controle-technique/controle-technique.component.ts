@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ItemsList } from '@ng-select/ng-select/lib/items-list';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { Key } from 'selenium-webdriver';
 import { cmd } from 'src/app/modals/cmd';
@@ -37,7 +38,10 @@ export class ControleTechniqueComponent implements OnInit {
   dropdownSettings = {};
   cmdId:any;
   idcmd:any;
-  lpofcmd:[];
+  lpofcmd:number[];
+  numbers: any[];
+  a : any = ""; 
+  pds: any[];
 
 
   constructor(private pdts: PdtService, private cmdService: CmdService, private cs: ControleTechniqueService, private router: Router, private formBuilder: FormBuilder, public fb: FormBuilder) { }
@@ -45,8 +49,6 @@ export class ControleTechniqueComponent implements OnInit {
   ngOnInit() {
 
     this.getCmds();
-
-   //
 
     this.dropdownSettings = {
       singleSelection: false,
@@ -72,7 +74,14 @@ export class ControleTechniqueComponent implements OnInit {
   // }
 
   onItemSelect(item: any) {
+    var b ;
     console.log(item);
+    console.log(item.id_pdt);
+    console.log(this.pds);
+
+    b=item.id_pdt;
+    this.a = this.a+b+",";
+    console.log(this.a);
   }
   onSelectAll(items: any) {
     console.log(items);
@@ -133,7 +142,7 @@ export class ControleTechniqueComponent implements OnInit {
   }
 
   createCtrl(numcmd: String, numfac: String) {
-    this.router.navigate(['ctrl-produit', numcmd, numfac,this.lpofcmd]);
+    this.router.navigate(['ctrl-produit', numcmd, numfac]);
 
   }
 
@@ -161,8 +170,9 @@ getPdtsCmd() {
   }
 
   onSubmit() { 
-    this.createCtrl;
-    console.log("ddaqsq");}
+    this.createCtrl(this.a,this.idcmd);
+    this.cs.newControle(this.a,this.idcmd);
 
-
+  }
+  
 }

@@ -31,7 +31,7 @@ export class UserAddComponent implements OnInit {
     succes(){
       Swal.fire({
         icon: 'success',
-        title: 'Your work has been saved',
+        title: 'Enregistrement effectué avec succès',
         showConfirmButton: false,
         timer: 1500
       })
