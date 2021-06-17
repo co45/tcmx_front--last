@@ -35,15 +35,17 @@
                 <tr class="text-white bgglob text-left">
                    
                   <th class="font-semibold text-sm uppercase px-6 py-4 text-center">
-                    Date APE
+                    PROCUT REF
+    
+                </th>
+
+                  <th class="font-semibold text-sm uppercase px-6 py-4 text-center">
+                    FACTURE
 
                 </th><th class="font-semibold text-sm uppercase px-6 py-4 text-center">
-                  Date INCM
+                 CONTROLE REF
 
               </th><th class="font-semibold text-sm uppercase px-6 py-4 text-center">
-                Date Peremption
-
-            </th><th class="font-semibold text-sm uppercase px-6 py-4 text-center">
               Date Recuperation echantil
 
           </th><th class="font-semibold text-sm uppercase px-6 py-4 text-center">
@@ -87,6 +89,30 @@
                 </tr>
             </thead>
             <tbody class="divide-y divide-gray-200">
+              <tr *ngFor="let ctrl of Ctrls | filter:filterTerm" >
+                <td  class="px-6 py-4 text-center">
+                    {{ctrl.controlTech}}
+                </td>
+                <td class="px-6 py-4">
+                    <p class="text-gray-500 text-sm font-semibold tracking-wide">
+                        {{ctrl.facture}}
+                    </p>
+                </td>
+                <td class="px-6 py-4">
+                  <p class="text-gray-500 text-sm font-semibold tracking-wide">
+                      {{ctrl.refProuct}}
+                  </p>
+              </td>
+              <td class="px-6 py-4">
+                <p class="text-gray-500 text-sm font-semibold tracking-wide">
+                    {{ctrl.date_per}}
+                </p>
+            </td>
+            <td class="px-6 py-4">
+              <p class="text-gray-500 text-sm font-semibold tracking-wide">
+                  {{ctrl.date_recup_ech}}
+              </p>
+          </td></tr>
                 <!--<tr *ngFor="let ctrl of Ctrls | filter:filterTerm" >
                     <td  class="px-6 py-4 text-center">
                         {{ctrl.num_fac}}

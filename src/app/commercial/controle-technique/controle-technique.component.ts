@@ -42,6 +42,7 @@ export class ControleTechniqueComponent implements OnInit {
   numbers: any[];
   a : any = ""; 
   pds: any[];
+  facturen :any;
 
 
   constructor(private pdts: PdtService, private cmdService: CmdService, private cs: ControleTechniqueService, private router: Router, private formBuilder: FormBuilder, public fb: FormBuilder) { }
@@ -114,9 +115,11 @@ export class ControleTechniqueComponent implements OnInit {
     console.log(e.target.value);
     for(let r of this.Cmds){
       if(r.numero == e.target.value) {
-        console.log("OK!!");
         this.idcmd=r.id_cmd
-        console.log("id:"+this.idcmd);
+        console.log("idcmd:"+this.idcmd);
+
+       // this.facturen=this.form.num_fac;
+        //console.log("facturen:"+this.facturen);
       }
     }
     this.getPdtsCmd();
@@ -141,9 +144,8 @@ export class ControleTechniqueComponent implements OnInit {
     // );
   }
 
-  createCtrl(numcmd: String, numfac: String) {
-    this.router.navigate(['ctrl-produit', numcmd, numfac]);
-
+   createCtrl(numcmd: String, numfac: String, facturen:string) {
+    this.router.navigate(['controle-produit', numcmd, numfac, facturen]);
   }
 
 
@@ -153,7 +155,7 @@ export class ControleTechniqueComponent implements OnInit {
 
 
   }
-
+  onKey(event) {this.facturen = event.target.value;}
 
 getPdtsCmd() {
     this.pdts.getPdtListcmd(this.idcmd).subscribe(data => {
@@ -170,9 +172,15 @@ getPdtsCmd() {
   }
 
   onSubmit() { 
-    this.createCtrl(this.a,this.idcmd);
+    this.createCtrl(this.a,this.idcmd,this.facturen);
+
     this.cs.newControle(this.a,this.idcmd);
 
+  }
+
+  onSubmitValidateBtn() {
+    console.log("onSubmitValidateBtn")
+    this.createCtrl(this.a,this.idcmd,this.facturen);
   }
   
 }

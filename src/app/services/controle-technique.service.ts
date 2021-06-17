@@ -6,7 +6,8 @@ import { ControleTechniqueModel } from '../modals/CtrlTech';
 
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -36,12 +37,16 @@ export class ControleTechniqueService {
   public deleteControle(id: number): Observable<any> {
     return this.http.delete("http://localhost:8080/controle/delete/"+id, { responseType: 'text' });
   }
-  addControle(controle: ControleTechniqueModel): Observable<any> {
-    return this.http.post("http://localhost:8080/controle/newsCtrl",{
+
+
+  public addControle(controle: ControleTechniqueModel, modelCtrl: ControleTechniqueModel): Observable<any> {
+
+    return this.http.post("http://localhost:8080/controle/newsCtrl/",{
+      
       numLot : controle.numLot,
       numApe : controle.numApe,
       datePeremption : controle.datePeremption,
-      facture : controle.facture,
+      facture : modelCtrl.facture,
       numIncm : controle.numIncm,
       dateIncm : controle.dateIncm,
       dateAmc : controle.dateAmc,
@@ -50,7 +55,10 @@ export class ControleTechniqueService {
       quantite : controle.quantite,
       provenance : controle.provenance,
       origine : controle.origine,
-      produit : controle.produit
-        }, httpOptions);
+      produit : modelCtrl.produit
+      /*controle*/
+      
+      
+        }, httpOptions /*+ fac*/);
   }
 }

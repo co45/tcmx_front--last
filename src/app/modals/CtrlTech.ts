@@ -1,5 +1,8 @@
 export class ControleTechniqueModel { 
 
+    constructor(data: Partial<ControleTechniqueModel>){
+        Object.assign(this, data);
+    }
     public facture:String;
     public dateAmc:Date;
     public dateApe:Date;

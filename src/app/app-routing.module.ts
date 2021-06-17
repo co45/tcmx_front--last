@@ -45,7 +45,7 @@ const routes: Routes = [
     {path:'user-update/:id', component: UserUpdateComponent},
     {path:'user-add', component: UserAddComponent},
     {path:'controle-technique', component:ControleTechniqueComponent},
-    {path:'controle-produit', component:ControleProduitComponent},
+    {path:'controle-produit/:numcmd/:numfac/:facturen', component:ControleProduitComponent},
     {path:'suivi-import',component:SuiviComponent},
     {path:'list-suivi', component:ListSuiviComponent},
     {path:'list-ctrl', component:ListCtrlComponent},
