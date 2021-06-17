@@ -92,11 +92,11 @@
                 </label>
                 <input
                     class="py-2 px-3 rounded-full border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
-                    name="nom" type="text" [(ngModel)]="form.nom" placeholder="Nom Commercial" required
-                    #nom="ngModel" [class.is-invalid]="nom.invalid && nom.touched"
-                    id="grid-nom" />
-                <div *ngIf="nom.errors && (nom.invalid || nom.touched)">
-                    <small class="text-danger" *ngIf="nom.errors.required" [class.d-none]="nom.untouched"
+                    name="nom_commercial" type="text" [(ngModel)]="form.nom_commercial" placeholder="Nom Commercial" required
+                    #nom_commercial="ngModel" [class.is-invalid]="nom_commercial.invalid && nom_commercial.touched"
+                    id="grid-nom_commercial" />
+                <div *ngIf="nom_commercial.errors && (nom_commercial.invalid || nom_commercial.touched)">
+                    <small class="text-danger" *ngIf="nom.errors.required" [class.d-none]="nom_commercial.untouched"
                         style="font-size: 11px">
                         Veuillez saisir le nom commercial du produit</small>
                 </div>

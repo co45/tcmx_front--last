@@ -27,7 +27,7 @@ export class PdtService {
      code_ngp:pdt.code_ngp,
      desg:pdt.desg,
      gamme:pdt.gamme,
-     nom:pdt.nom_commercial,
+     nom_commercial:pdt.nom_commercial,
      therapie:pdt.therapie
         }, httpOptions);
   }

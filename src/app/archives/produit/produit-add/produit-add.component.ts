@@ -25,7 +25,7 @@ export class ProduitAddComponent implements OnInit {
       icon: 'success',
       title: 'Produit Enregistré',
       showConfirmButton: false,
-      timer: 1000
+      timer: 800
     })
   }
 onSubmit() {
