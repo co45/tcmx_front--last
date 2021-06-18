@@ -13,21 +13,21 @@ const httpOptions = {
 export class SuiviService {
 
   constructor(private http: HttpClient) { }
-  create(suivi: any): Observable<any> {
+
+  public create(suivi: any): Observable<any> {
     return this.http.post("http://localhost:8080/suivi/add/", { 
       num_declaration:suivi.dec,
       observation:suivi.libelle_pdt,
       shipment:suivi.ship,
-      code_ngp:suivi.code_ngp,
-      desg:suivi.desg,
-      gamme:suivi.gamme,
       nom_commercial:suivi.nom_commercial,
-      therapie:suivi.therapie,
       Date_arrive_f_p:suivi.arrive,
       Date_declaration:suivi.datedec,
       Date_arrive_stock:suivi.arrives,
       facture:suivi.facture,
-      montantfacture:suivi.montant
+      montantfacture:suivi.montant,
+      datereception:suivi.daterec,
+      titre:suivi.titre,
+      reception:suivi.rec
 
          }, httpOptions);
   }
