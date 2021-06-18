@@ -7,6 +7,7 @@ import { suivi } from '../modals/suivi';
 import { titre } from '../modals/titre';
 import { CmdService } from '../services/cmd.service';
 import { ControleTechniqueService } from '../services/controle-technique.service';
+import { FactureService } from '../services/facture.service';
 import { FsrService } from '../services/fsr.service';
 import { PdtService } from '../services/pdt.service';
 import { SuiviService } from '../services/suivi.service';
@@ -30,10 +31,11 @@ export class DashboardComponent implements OnInit {
   Suivis: suivi[];
   suivi: suivi;
   s:suivi;
+  factures: any[];
 
 
 
-  constructor(private service: SuiviService,private cts : ControleTechniqueService,private ts: TitreService,private ps : PdtService,private fsrserv : FsrService,private cs : CmdService) { }
+  constructor(private service: SuiviService,private cts : ControleTechniqueService,private ts: TitreService,private ps : PdtService,private fsrserv : FsrService,private cs : CmdService, private fs:FactureService) { }
 
   ngOnInit(): void {
     this.getCmds();
@@ -42,6 +44,7 @@ export class DashboardComponent implements OnInit {
     this.getTitres();
     this.getcs();
     this.getSuivis();
+    this.getfacs();
   }
 
   getSuivis(){
@@ -51,6 +54,13 @@ export class DashboardComponent implements OnInit {
     });
   }
   
+  getfacs(){
+    this.fs.getFacList().subscribe(data => {
+      this.factures = data;
+      console.log("Factures : "+data);
+    });
+  }
+
   getCmds(){
     this.cs.getCmdList().subscribe(data => {
       this.Cmds = data;

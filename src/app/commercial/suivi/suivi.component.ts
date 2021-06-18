@@ -45,7 +45,7 @@ export class SuiviComponent implements OnInit {
     });  
   }
   getFactures(){
-    this.fas.getCmdList().subscribe(data => {
+    this.fas.getFacList().subscribe(data => {
       this.factures = data;
       console.log(data);
     });  

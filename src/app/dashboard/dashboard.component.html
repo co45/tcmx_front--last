@@ -85,29 +85,17 @@
     <table class='mx-auto w-1/2 whitespace-nowrap rounded-lg bg-white divide-y divide-gray-300 shadow-xl'>
         <thead id="pric">
             <tr class="text-white bgglob text-left">
-                <th class="font-semibold text-sm uppercase px-6 py-4">
+                <th class="font-semibold text-sm uppercase px-6 py-4 text-center">
                     Facture
                 </th>
-                <th class="font-semibold text-sm uppercase px-6 py-4">
-                    Date Creation
-                </th>
-               
             </tr>
         </thead>
         <tbody class="divide-y divide-gray-200">
-           <!-- <tr *ngFor="let ctrl of Ctrls" >
-                <td  class="px-6 py-4 text-center">
-                    {{ctrl.num_fac}}
+            <tr *ngFor="let f of factures" >
+                <td  class="px-6 py-3 text-center">
+                    {{f.num}}
                 </td>
-                <td class="px-6 py-4">
-                    <p class="text-gray-500 text-sm font-semibold tracking-wide">
-                        {{ctrl.dateCreation}}
-                    </p>
-                </td>
-                
-                
-                
-            </tr>-->
+            </tr>
             
         </tbody>
     </table>
@@ -115,7 +103,9 @@
 
 </div>
 </div>
+
 <div class="inline-grid grid-cols-3">
+    
 <div class=" flex px-4 mt-5 overflow-y-auto ">
     
 
@@ -143,28 +133,28 @@
         </thead>
         <tbody class="divide-y divide-gray-200 ">
             <tr *ngFor="let f of fsrs" >
-                <td class="px-6 py-4">
+                <td class="px-6 py-3">
                     <p class="text-gray-500 text-sm font-semibold tracking-wide">
                         {{f.nom}}
                     </p>
 
                 </td>
-                <td class="px-6 py-4">
+                <td class="px-6 py-3">
                     <p class="text-gray-500 text-sm font-semibold tracking-wide">
                         {{f.adresse_fsr}}
                     </p>
                 </td>
-                <td  class="px-6 py-4 text-center">
+                <td  class="px-6 py-3 text-center">
                     <p class="text-gray-500 text-sm font-semibold tracking-wide">
                         {{f.code_fsr}}      
                     </p>
                 </td>
-                <td  class="px-6 py-4 text-center">
+                <td  class="px-6 py-3 text-center">
                     <p class="text-gray-500 text-sm font-semibold tracking-wide">
                         {{f.libelle_fsr}}      
                     </p>
                 </td>
-                <td  class="px-6 py-4 text-center">
+                <td  class="px-6 py-3 text-center">
                     <p class="text-gray-500 text-sm font-semibold tracking-wide">
                         {{f.swift}}      
                     </p>
@@ -173,6 +163,9 @@
             </tr>
             
         </tbody>
+        <tfoot class="text-lg text-center bgglob text-white w-full"><th class=""> Fournisseur </th>
+        <th></th></tfoot>
+        
     </table>
     </div>
 
@@ -206,37 +199,37 @@
             </thead>
             <tbody class="divide-y divide-gray-200">
                 <tr *ngFor="let p of Pdts" >
-                    <td class="px-6 py-4">
+                    <td class="px-6 py-3">
                         <p class="text-gray-500 text-sm font-semibold tracking-wide">
                             {{p.reference}}
                         </p>
  
                     </td>
-                    <td class="px-6 py-4">
+                    <td class="px-6 py-3">
                         <p class="text-gray-500 text-sm font-semibold tracking-wide">
                             {{p.nom_commercial}}
                         </p>
  
                     </td>
-                    <td class="px-6 py-4">
+                    <td class="px-6 py-3">
                         <p class="text-gray-500 text-sm font-semibold tracking-wide">
                             {{p.famille}}
                         </p>
  
                     </td>
-                    <td class="px-6 py-4">
+                    <td class="px-6 py-3">
                         <p class="text-gray-500 text-sm font-semibold tracking-wide">
                             {{p.gamme}}
                         </p>
  
                     </td>
-                    <td class="px-6 py-4">
+                    <td class="px-6 py-3">
                         <p class="text-gray-500 text-sm font-semibold tracking-wide">
                             {{p.therapie}}
                         </p>
  
                     </td>
-                    <td class="px-6 py-4">
+                    <td class="px-6 py-3">
                         <p class="text-gray-500 text-sm font-semibold tracking-wide">
                             {{p.libelle_pdt}}
                         </p>
@@ -269,9 +262,7 @@
                 <th class="font-semibold text-sm uppercase px-6 py-4">
                     Montant
                 </th>
-                <th class="font-semibold text-sm uppercase px-6 py-4">
-                    Fournisseur
-                </th>
+               
 
             </tr>
         </thead>
@@ -301,12 +292,7 @@
                     </p>
 
                 </td>
-                <td class="px-6 py-4">
-                    <p class="text-gray-500 text-sm font-semibold tracking-wide">
-                        {{t.fournisseurTitre.nom}}
-                    </p>
-
-                </td>
+                
                
             </tr>
             

@@ -9,7 +9,7 @@ export class FactureService {
 
   constructor(private http: HttpClient) { }
 
-  public getCmdList(): Observable<any> {
+  public getFacList(): Observable<any> {
     return this.http.get("http://localhost:8080/facture/all");
   }
 }
