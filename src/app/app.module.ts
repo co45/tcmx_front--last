@@ -37,6 +37,7 @@ import { AuthGuard } from './services/guard/auth.guard';
 import { AuthService } from './services/auth.service';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { DashcommComponent } from './dashboards/commercial/dashcomm/dashcomm.component';
+import { ViewCtrlComponent } from './commercial/view-ctrl/view-ctrl.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { DashcommComponent } from './dashboards/commercial/dashcomm/dashcomm.com
     TitreComponent,
     TitreAddComponent,
     DashcommComponent,
+    ViewCtrlComponent,
   ],
   imports: [
     BrowserModule,

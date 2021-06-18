@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 // import { CtrlTech } from 'src/app/modals/CtrlTech';
 import { ControleTechniqueService } from 'src/app/services/controle-technique.service';
 import Swal from 'sweetalert2';
@@ -14,7 +15,8 @@ export class ListCtrlComponent implements OnInit {
   Ctrls: any[];
   ctrl: any;
   filterTerm: string;  
-  constructor(private cts : ControleTechniqueService) { }
+  id_ctrl:number;
+  constructor(private cts : ControleTechniqueService,private router : Router) { }
 
   ngOnInit(): void {
     this.getcs();
@@ -24,6 +26,10 @@ export class ListCtrlComponent implements OnInit {
       this.Ctrls = data;
       console.log(data);
     });
+  }
+  ctrlDetails(idctrl: number){
+    this.router.navigate(['ctrl-details', idctrl]);
+   console.log(" shit : "+idctrl)
   }
 
   deleteCtrl(id: number){

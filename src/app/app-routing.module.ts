@@ -28,6 +28,7 @@ import { titre } from './modals/titre';
 import { TitreComponent } from './archives/titre/titre.component';
 import { TitreAddComponent } from './archives/titre/titre-add/titre-add.component';
 import { DashcommComponent } from './dashboards/commercial/dashcomm/dashcomm.component';
+import { ViewCtrlComponent } from './commercial/view-ctrl/view-ctrl.component';
 
 const routes: Routes = [
     {path: '',redirectTo: 'login', pathMatch: 'full'},
@@ -59,7 +60,9 @@ const routes: Routes = [
     {path:'produit-add',component:ProduitAddComponent},
     {path:'list-titre',component:TitreComponent},
     {path:'titre-add',component:TitreAddComponent},
-    {path:'dashboardc',component:DashcommComponent}
+    {path:'dashboardc',component:DashcommComponent},
+    {path:'ctrl-details/:idctrl', component: ViewCtrlComponent}
+
     
     ]},
 
