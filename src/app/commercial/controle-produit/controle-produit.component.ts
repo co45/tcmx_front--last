@@ -71,7 +71,7 @@ export class ControleProduitComponent implements OnInit {
     const model = new ControleTechniqueModel({facture: this.numFacFromView2, produit:this.idsFromView1});
 
     console.log("FACTURE : "+ model.facture+" IDs Commande : "+ model.produit)
-    this.cs.addControle(this.form,model/*model*/).subscribe(
+    this.cs.addControle(this.form,model).subscribe(
       data => {
         console.log(data);
         this.succes();

@@ -59,6 +59,6 @@ export class ControleTechniqueService {
       /*controle*/
       
       
-        }, httpOptions /*+ fac*/);
+        }, httpOptions );
   }
 }

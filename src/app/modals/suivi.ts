@@ -1,9 +1,15 @@
 export class suivi { 
-    public ID_s_i : Number
-    public shipment:String;
-    public date_arrive_f_p: Date;
-    public date_arrive_stock: Date;
-    public date_declaration: Date;
-    public num_declaration: String;
-    public observation: String;
+    constructor(data: Partial<suivi>){
+        Object.assign(this, data);
+    }
+    public  numdeclaration:String;
+    public  observation:String;
+    public  shipment:String;
+    public  datearrivefp:Date;
+    public  datedeclaration:Date;
+    public  datearrivestock:Date;
+    public  facture: String;
+    public  reception: String;
+    public  datereception:Date;
+    public  montantfacture:String;
 }
