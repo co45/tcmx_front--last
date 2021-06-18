@@ -10,9 +10,8 @@
 
     <div class="grid grid-cols-1 mt-5 mx-7">
       <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Numero</label>
-      <input class="py-2 px-3 rounded-full border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" type="text" placeholder="Nom fournisseur" name="nom" [(ngModel)]="form.nom" required  #nom="ngModel" autofocus=""
-      [class.is-invalid]="nom.invalid && nom.touched" id="grid-nom" />
-      <div *ngIf="nom.errors && (nom.invalid || nom.touched)">
+      <select (keyup)="onKey($event)" name="fsr" [(ngModel)]="form.fsr" required #fsr="ngModel" class="py-2 px-3 rounded-full border-2 border-blue-300 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" [class.is-invalid]="fsr.invalid && fsr.touched" id="grid-fsr"><option *ngFor="let f of Fsrs">{{f.nom}}</option></select>
+      <div *ngIf="(fsr.invalid || fsr.touched)">
         <small class="text-danger" *ngIf="nom.errors.required" [class.d-none]="nom.untouched"
           style="font-size: 11px">
           Veuillez saisir un nom</small>
@@ -34,7 +33,7 @@
         name="code" [(ngModel)]="form.code" required minlength="3" maxlength="20" #code="ngModel"
           placeholder="code" autofocus="" [class.is-invalid]="code.invalid && code.touched"
           id="grid-pseudo" type="text" />
-          <div *ngIf="code.errors && (code.invalid || code.touched)">
+          <div *ngIf="(code.invalid || code.touched)">
             <small class="text-danger" *ngIf="code.errors.required" [class.d-none]="code.untouched"
               style="font-size: 11px">
               Veuillez saisir un code</small>
@@ -50,7 +49,7 @@
           [class.is-invalid]="montant.invalid && montant.touched"
           class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-full py-3 px-4"
           id="grid-montant" type="text" placeholder="montant" />
-        <div *ngIf="montant.errors && (montant.invalid || montant.touched)">
+        <div *ngIf="(montant.invalid || montant.touched)">
           <small class="text-danger" *ngIf="montant.errors.required" [class.d-none]="montant.untouched"
             style="font-size: 11px">
             Veuillez saisir un Montant</small>

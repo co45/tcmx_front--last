@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { fsr } from 'src/app/modals/fsr';
+import { FsrService } from 'src/app/services/fsr.service';
 import { TitreService } from 'src/app/services/titre.service';
 import Swal from 'sweetalert2';
 
@@ -14,10 +16,20 @@ export class TitreAddComponent implements OnInit {
   isSuccessful = false;
   isaddFailed = false;
   errorMessage = '';
+  Fsrs: fsr[];
+  fsr: fsr;
 
-  constructor(private titre: TitreService, private router: Router) { }
+  constructor(private fs: FsrService,private titre: TitreService, private router: Router) { }
 
   ngOnInit(): void {
+    this.getFsrs();
+  }
+
+  getFsrs(){
+    this.fs.getFsrList().subscribe(data => {
+      this.Fsrs = data;
+      console.log(data);
+    });  
   }
 
   succes(){

@@ -22,10 +22,25 @@ export class TitreService {
       code:titre.code,
       montant:titre.montant,
       date_t: titre.date,
-      fsr: titre.fsr
+      titrefsr: titre.fsr
         }, httpOptions);
   }
   public deleteTitre(id: number): Observable<any> {
     return this.http.delete("http://localhost:8080/titre/delete/"+id, { responseType: 'text' });
+  }
+
+  fsrSelected(e){
+     console.log(e.target.value);
+    // for(let r of this.Cmds){
+    //   if(r.numero == e.target.value) {
+    //     this.idcmd=r.id_cmd
+    //     console.log("idcmd:"+this.idcmd);
+
+    //    // this.facturen=this.form.num_fac;
+    //     //console.log("facturen:"+this.facturen);
+    //   }
+    // }
+    // this.getPdtsCmd();
+
   }
 }
