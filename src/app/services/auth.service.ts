@@ -34,8 +34,8 @@ export class AuthService {
       phone: user.phone,
       dateOfBirth: user.dateOfBirth,
       password: user.password,
-      departement:user.departement,
-      role:user.role
+      departement:user.role,
+      roles:user.role
         }, httpOptions);
   }
 }

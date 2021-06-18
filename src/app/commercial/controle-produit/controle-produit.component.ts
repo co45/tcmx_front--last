@@ -61,6 +61,11 @@ export class ControleProduitComponent implements OnInit {
       }
     );*/
   }
+
+  goToCtrlList(){
+    this.router.navigate(['/list-ctrl']);
+    
+  }
   enregistrerClick(){
 
     const model = new ControleTechniqueModel({facture: this.numFacFromView2, produit:this.idsFromView1});
@@ -79,5 +84,6 @@ export class ControleProduitComponent implements OnInit {
       }
     );
 
+    this.goToCtrlList();
   }
 }

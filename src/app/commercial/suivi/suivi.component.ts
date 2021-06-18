@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { cmd } from 'src/app/modals/cmd';
 import { fsr } from 'src/app/modals/fsr';
 import { titre } from 'src/app/modals/titre';
 import { CmdService } from 'src/app/services/cmd.service';
 import { FactureService } from 'src/app/services/facture.service';
 import { FsrService } from 'src/app/services/fsr.service';
+import { SuiviService } from 'src/app/services/suivi.service';
 import { TitreService } from 'src/app/services/titre.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-suivi',
@@ -22,7 +25,7 @@ export class SuiviComponent implements OnInit {
   factures : any[];
   fac :any;
 
-  constructor(private fs: FsrService, private cmdService:CmdService,private titreService : TitreService ,private fas: FactureService) { }
+  constructor(private router: Router,private fs: FsrService, private cmdService:CmdService,private titreService : TitreService ,private fas: FactureService,private ss: SuiviService) { }
 
   ngOnInit(): void {
     this.getFsrs();
@@ -59,6 +62,34 @@ export class SuiviComponent implements OnInit {
     });
     
   }
-  onSubmit(){}
+
+  succes(){
+    Swal.fire({
+      icon: 'success',
+      title: 'Produit Enregistré',
+      showConfirmButton: false,
+      timer: 800
+    })
+  }
+
+
+  goToSuiviList(){
+    this.router.navigate(['/produit']);
+    
+  }
+
+  onSubmit(){
+    this.ss.create(this.form).subscribe(
+      data => {
+        console.log(data);
+        this.succes();
+        this.goToSuiviList();
+  
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
 
 }

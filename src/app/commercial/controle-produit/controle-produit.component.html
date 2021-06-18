@@ -16,34 +16,26 @@
     <th class="px-4 py-3">N° Lots	</th>
     <th class="px-4 py-3">Date de Péremption</th>
     <th class="px-4 py-3">Origine</th>
-    <th class="px-4 py-3">Provonance</th>
+    <th class="px-4 py-3">provenance</th>
     <th class="px-4 py-3">Quantité</th>
-    <th class="px-4 py-3">Nom Commercial</th>
-    <th class="px-4 py-3">CODE NGP</th>
-    <th class="px-4 py-3">NOUVELLE DESIGNATION</th>
     <th class="px-4 py-3">DATE APE</th>
     <th class="px-4 py-3">N°  APE</th>
-    <th class="px-4 py-3">DATE DEPOT LNCM</th>
-    <th class="px-4 py-3">N° BULLETIN LNCM</th>
+    <th class="px-4 py-3">N° BULLETIN INCM</th>
     <th class="px-4 py-3">DATE RECUPERATION ECHANTILLON</th>
     <th class="px-4 py-3">Date AMC</th>
   </tr>
   <tr class="border-b border-indigo-400">
     <td class="px-4 py-3">From DB</td>
-    <td class="px-4 py-3"><input name="name" [(ngModel)]="form.numLot" required #numLot="ngModel" type="text" class="h-8 text-xs  form-control appearance-none block w-30 bg-transparent text-white border border-white rounded-full "/></td>
-    <td class="px-4 py-3"><input type="Date" class="h-8 text-xs  form-control appearance-none block w-30 bg-transparent text-white border border-white rounded-full "/></td>
-    <td class="px-4 py-3"><input type="text" class="h-8 text-xs form-control appearance-none block w-30 bg-transparent text-white border border-white rounded-full "/></td>
-    <td class="px-4 py-3"><input type="text" class="h-8 text-xs form-control appearance-none block w-30 bg-transparent text-white border border-white rounded-full "/></td>
-    <td class="px-4 py-3"><input type="text" class="h-8 text-xs form-control appearance-none block w-30 bg-transparent text-white border border-white rounded-full "/></td>
-    <td class="px-4 py-3">From DB</td>
-    <td class="px-4 py-3">From DB</td>
-    <td class="px-4 py-3">From DB</td>
-    <td class="px-4 py-3"><input type="text" class="h-8 text-xs form-control appearance-none block w-30 bg-transparent text-white border border-white rounded-full "/></td>
-    <td class="px-4 py-3"><input type="Date" class="h-8 text-xs form-control appearance-none block w-30 bg-transparent text-white border border-white rounded-full "/></td>
-    <td class="px-4 py-3"><input type="text" class="h-8 text-xs form-control appearance-none block w-30 bg-transparent text-white border border-white rounded-full "/></td>
-    <td class="px-4 py-3"><input type="text" class="h-8 text-xs form-control appearance-none block w-30 bg-transparent text-white border border-white rounded-full "/></td>
-    <td class="px-4 py-3"><input type="Date" class="h-8 text-xs form-control appearance-none block w-30 bg-transparent text-white border border-white rounded-full "/></td>
-    <td class="px-4 py-3"><input type="Date" class="h-8 text-xs form-control appearance-none block w-30 bg-transparent text-white border border-white rounded-full "/></td>
+    <td class="px-4 py-3"><input name="numLot" [(ngModel)]="form.numLot" required #numLot="ngModel" type="text" class="h-8 text-xs  form-control appearance-none block w-30 bg-transparent text-white border border-white rounded-full "/></td>
+    <td class="px-4 py-3"><input name="datePeremption" [(ngModel)]="form.datePeremption" required #datePeremption="ngModel" type="Date" class="h-8 text-xs  form-control appearance-none block w-30 bg-transparent text-white border border-white rounded-full "/></td>
+    <td class="px-4 py-3"><input name="origine" [(ngModel)]="form.origine" required #origine="ngModel" type="text" class="h-8 text-xs form-control appearance-none block w-30 bg-transparent text-white border border-white rounded-full "/></td>
+    <td class="px-4 py-3"><input name="provenance" [(ngModel)]="form.provenance" required #provenance="ngModel" type="text" class="h-8 text-xs form-control appearance-none block w-30 bg-transparent text-white border border-white rounded-full "/></td>
+    <td class="px-4 py-3"><input name="quantite" [(ngModel)]="form.quantite" required #quantite="ngModel" type="text" class="h-8 text-xs form-control appearance-none block w-30 bg-transparent text-white border border-white rounded-full "/></td>
+    <td class="px-4 py-3"><input name="dateApe" [(ngModel)]="form.dateApe" required #dateApe="ngModel" type="date" class="h-8 text-xs form-control appearance-none block w-30 bg-transparent text-white border border-white rounded-full "/></td>
+    <td class="px-4 py-3"><input name="numApe" [(ngModel)]="form.numApe" required #numApe="ngModel" type="text" class="h-8 text-xs form-control appearance-none block w-30 bg-transparent text-white border border-white rounded-full "/></td>
+    <td class="px-4 py-3"><input name="numIncm" [(ngModel)]="form.numIncm" required #numIncm="ngModel" type="text" class="h-8 text-xs form-control appearance-none block w-30 bg-transparent text-white border border-white rounded-full "/></td>
+    <td class="px-4 py-3"><input name="dateRecEch" [(ngModel)]="form.dateRecEch" required #dateRecEch="ngModel" type="date" class="h-8 text-xs form-control appearance-none block w-30 bg-transparent text-white border border-white rounded-full "/></td>
+    <td class="px-4 py-3"><input name="dateAmc" [(ngModel)]="form.dateAmc" required #dateAmc="ngModel" type="Date" class="h-8 text-xs form-control appearance-none block w-30 bg-transparent text-white border border-white rounded-full "/></td>
   </tr>    
 </table>
 </div>

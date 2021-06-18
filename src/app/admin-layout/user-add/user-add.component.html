@@ -141,21 +141,16 @@
         <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Role</label>
         <div class="grid grid-cols-3 mt-2 mr-2" >
           <div>
-            <select>
-              <option>Achat</option>
-              <option>Commercial</option>
+            <select value="achat" [(ngModel)]="form.role" #departement="ngModel">
+              <option value="achat">Achat</option>
+              <option value="commercial">Commercial</option>
             </select>
-            <label class="inline-flex items-center">
+            <!-- <label class="inline-flex items-center">
               <input type="radio" class="form-radio" name="radio" value="achat" [(ngModel)]="form.departement" #departement="ngModel">
               <span class="ml-2">Achat</span>
-            </label>
+            </label> -->
           </div>
-          <div>
-            <label class="inline-flex items-center">
-              <input type="radio" class="form-radio" name="radio" value="commercial" [(ngModel)]="form.departement" #departement="ngModel">
-              <span class="ml-2">Commercial</span>
-            </label>
-          </div>
+          
           </div>
        
       </div>
