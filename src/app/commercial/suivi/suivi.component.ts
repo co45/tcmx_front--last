@@ -83,12 +83,8 @@ export class SuiviComponent implements OnInit {
   }
 
   onSubmit(){
-    const model = new suivi({facture: this.factureview, titre:this.titreview});
-
-
-
-/********************* */
-    this.ss.create(this.form,model).subscribe(
+    
+    this.ss.create(this.form).subscribe(
       data => {
         console.log(data);
         this.succes();
