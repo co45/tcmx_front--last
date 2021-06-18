@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { cmd } from 'src/app/modals/cmd';
 import { fsr } from 'src/app/modals/fsr';
+import { suivi } from 'src/app/modals/suivi';
 import { titre } from 'src/app/modals/titre';
 import { CmdService } from 'src/app/services/cmd.service';
 import { FactureService } from 'src/app/services/facture.service';
@@ -24,6 +25,9 @@ export class SuiviComponent implements OnInit {
   Cmds: cmd[];
   factures : any[];
   fac :any;
+  factureview:any;
+  titreview:any;
+
 
   constructor(private router: Router,private fs: FsrService, private cmdService:CmdService,private titreService : TitreService ,private fas: FactureService,private ss: SuiviService) { }
 
@@ -79,7 +83,12 @@ export class SuiviComponent implements OnInit {
   }
 
   onSubmit(){
-    this.ss.create(this.form).subscribe(
+    const model = new suivi({facture: this.factureview, titre:this.titreview});
+
+
+
+/********************* */
+    this.ss.create(this.form,model).subscribe(
       data => {
         console.log(data);
         this.succes();

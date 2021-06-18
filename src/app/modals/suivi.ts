@@ -12,4 +12,5 @@ export class suivi {
     public  reception: String;
     public  datereception:Date;
     public  montantfacture:String;
+    public  titre:String
 }

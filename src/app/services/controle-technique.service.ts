@@ -55,9 +55,7 @@ export class ControleTechniqueService {
       quantite : controle.quantite,
       provenance : controle.provenance,
       origine : controle.origine,
-      produit : modelCtrl.produit
-      /*controle*/
-      
+      produit : modelCtrl.produit      
       
         }, httpOptions );
   }
