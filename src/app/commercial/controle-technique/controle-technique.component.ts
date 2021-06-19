@@ -6,9 +6,11 @@ import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { Key } from 'selenium-webdriver';
 import { cmd } from 'src/app/modals/cmd';
 import { pdt } from 'src/app/modals/pdt';
+import { User } from 'src/app/modals/user';
 import { CmdService } from 'src/app/services/cmd.service';
 import { ControleTechniqueService } from 'src/app/services/controle-technique.service';
 import { PdtService } from 'src/app/services/pdt.service';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 import Swal from 'sweetalert2';
 
 
@@ -44,8 +46,16 @@ export class ControleTechniqueComponent implements OnInit {
   pds: any[];
   facturen :any;
 
+  currentUser: any;
+  private roles: string[]=[];
+  isLoggedIn = false;
+  showAdminBoard = false;
+  showUserBoard = false;
+  showAchatBoard = false;
+  userinfo:User;
+  username?: string;
 
-  constructor(private pdts: PdtService, private cmdService: CmdService, private cs: ControleTechniqueService, private router: Router, private formBuilder: FormBuilder, public fb: FormBuilder) { }
+  constructor(private pdts: PdtService, private cmdService: CmdService, private cs: ControleTechniqueService, private router: Router, private formBuilder: FormBuilder, public fb: FormBuilder,private token: TokenStorageService) { }
 
   ngOnInit() {
 
@@ -62,8 +72,27 @@ export class ControleTechniqueComponent implements OnInit {
       allowSearchFilter: true,
     };
 
-  }
+    this.isLoggedIn = !!this.token.getToken();
+    
+    if (this.isLoggedIn) {
+      this.currentUser = this.token.getUser();
+      console.log(this.currentUser.username,this.currentUser.roles[0]);
+      const user = this.token.getUser();
+      this.roles = this.currentUser.roles[0];
 
+      if(this.roles.includes('ROLE_ADMIN')){
+        this.showAdminBoard = true;
+      }else if(this.roles.includes('ROLE_achat')){
+          this.showAchatBoard = true;
+        }else{
+          this.showUserBoard=true;
+        }
+      this.username = user.username;
+      this.id = user.id;
+
+  }
+  }
+  
   // getPdts() {
   //   this.pdts.getPdtList().subscribe(data => {
   //     this.pdtL = data;

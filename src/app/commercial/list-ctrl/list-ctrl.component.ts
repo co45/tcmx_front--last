@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/modals/user';
 // import { CtrlTech } from 'src/app/modals/CtrlTech';
 import { ControleTechniqueService } from 'src/app/services/controle-technique.service';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -16,10 +18,40 @@ export class ListCtrlComponent implements OnInit {
   ctrl: any;
   filterTerm: string;  
   id_ctrl:number;
-  constructor(private cts : ControleTechniqueService,private router : Router) { }
+
+  
+  currentUser: any;
+  private roles: string[]=[];
+  isLoggedIn = false;
+  showAdminBoard = false;
+  showUserBoard = false;
+  showAchatBoard = false;
+  userinfo:User;
+  username?: string;
+  constructor(private cts : ControleTechniqueService,private router : Router,private token: TokenStorageService) { }
 
   ngOnInit(): void {
     this.getcs();
+
+    this.isLoggedIn = !!this.token.getToken();
+    
+    if (this.isLoggedIn) {
+      this.currentUser = this.token.getUser();
+      console.log(this.currentUser.username,this.currentUser.roles[0]);
+      const user = this.token.getUser();
+      this.roles = this.currentUser.roles[0];
+
+      if(this.roles.includes('ROLE_ADMIN')){
+        this.showAdminBoard = true;
+      }else if(this.roles.includes('ROLE_achat')){
+          this.showAchatBoard = true;
+        }else{
+          this.showUserBoard=true;
+        }
+      this.username = user.username;
+      this.id = user.id;
+
+  }
   }
   getcs(){
     this.cts.getControles().subscribe(data =>{

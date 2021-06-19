@@ -16,14 +16,12 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     
       if (!this.storage.existeToken) {
-        this.router.navigate(['']);
+        this.router.navigate(['/']);
         return false;
       }
   
       return true;
-    
-      
-    
+
   }
 }
 

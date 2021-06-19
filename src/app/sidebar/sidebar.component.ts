@@ -15,6 +15,7 @@ export class SidebarComponent implements OnInit {
   isLoggedIn = false;
   showAdminBoard = false;
   showUserBoard = false;
+  showAchatBoard = false;
   userinfo:User;
   username?: string;
   email : String ;
@@ -37,8 +38,10 @@ export class SidebarComponent implements OnInit {
 
       if(this.roles.includes('ROLE_ADMIN')){
         this.showAdminBoard = true;
-      }else{
-          this.showUserBoard = true;
+      }else if(this.roles.includes('ROLE_achat')){
+          this.showAchatBoard = true;
+        }else{
+          this.showUserBoard=true;
         }
       this.username = user.username;
       this.id = user.id;
@@ -48,6 +51,7 @@ export class SidebarComponent implements OnInit {
 logout() {
   this.token.signOut();
   this.router.navigate(['/login']);
+  sessionStorage.clear();
 }
 }
 
